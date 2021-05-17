@@ -12,9 +12,21 @@ using Grasshopper.Kernel.Data;
 using Grasshopper.Kernel.Types;
 
 // Non-default includes.
+using Rhino.DocObjects;
+using Rhino.Collections;
+using GH_IO;
+using GH_IO.Serialization;
+using System.IO;
+using System.Xml;
+using System.Xml.Linq;
+using System.Linq;
+using System.Data;
+using System.Drawing;
+using System.Reflection;
+using System.Runtime.InteropServices;
 
 /// Unique namespace, so visual studio won't throw any errors about duplicate definitions.
-namespace ns23589
+namespace ns3b503
 {
     /// <summary>
     /// This class will be instantiated on demand by the Script component.
@@ -61,9 +73,9 @@ namespace ns23589
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(List<Point3d> Points, ref object Polyline)
+        private void RunScript(object x, object y, ref object A)
         {
-            Polyline = new Polyline(Points);
+
         }
         #endregion
 
