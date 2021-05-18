@@ -66,6 +66,7 @@ namespace ns6b32b
             Point3d p0 = new Point3d(0, 0, 0);
             Point3d p1 = new Point3d(5, 1, 0);
             Point3d p2 = new Point3d(6, -3, 0);
+            double radius = 3.5;
 
             //Instance of a lightweight line
             Line line = new Line(p0, p1);
@@ -79,6 +80,9 @@ namespace ns6b32b
 
             Polyline polyline = new Polyline(pointList);
             CPolyline = polyline;
+            
+            Circle circle = new Circle(p0, radius);
+            Circle = circle;
 
         }
         #endregion
