@@ -82,6 +82,19 @@ namespace ns0046a
 
             Arc arc = new Arc(circle, angleInterval);
             A = arc;
+            
+            //Extract end points
+            Point3d startPoint = arc.StartPoint;
+            Point3d endPoint = arc.EndPoint;
+            
+            //Create a vertical vector
+            Vector3d vec = Vector3d.ZAxis;
+            //Use the multiplication operation to scale by 10
+            vec = vec * 10;
+            
+            //Create start and end lines
+            Line line1 = new Line(startPoint, vec);
+            Line line2 = new Line(endPoint, vec);
 
 
         }
