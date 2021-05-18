@@ -70,9 +70,16 @@ namespace ns6b32b
             //Instance of a lightweight line
             Line line = new Line(p0, p1);
             CLine = line;
-            
+
             Arc arc = new Arc(p0, p1, p2);
             CArc = arc;
+
+            //Put the 3 points in a list
+            Point3d[] pointList = {p0,p1,p2};
+
+            Polyline polyline = new Polyline(pointList);
+            CPolyline = polyline;
+
         }
         #endregion
 
