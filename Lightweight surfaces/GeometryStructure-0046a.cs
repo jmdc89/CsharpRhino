@@ -61,7 +61,7 @@ namespace ns0046a
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(object x, object y, ref object A)
+        private void RunScript(object x, object y, ref object A, ref object GeoCylinder)
         {
             //Generate a random radius of a circle
             Random rand = new Random();
@@ -82,19 +82,26 @@ namespace ns0046a
 
             Arc arc = new Arc(circle, angleInterval);
             A = arc;
-            
+
             //Extract end points
             Point3d startPoint = arc.StartPoint;
             Point3d endPoint = arc.EndPoint;
-            
+
             //Create a vertical vector
             Vector3d vec = Vector3d.ZAxis;
             //Use the multiplication operation to scale by 10
             vec = vec * 10;
-            
+
             //Create start and end lines
             Line line1 = new Line(startPoint, vec);
             Line line2 = new Line(endPoint, vec);
+
+            //Create a cylinder at line1 with radius = 1/4 the length
+            double height = line1.Length;
+            double radius2 = height / 4;
+            Circle c_circle = new Circle(line1.From, radius2);
+            Cylinder cylinder = new Cylinder(c_circle, height);
+            GeoCylinder = cylinder;
 
 
         }
