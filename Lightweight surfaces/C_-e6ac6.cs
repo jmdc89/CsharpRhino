@@ -75,9 +75,12 @@ namespace nse6ac6
             Circle baseCircle = new Circle(center, cylinderRadius);
             Cylinder cy = new Cylinder(baseCircle, cylinderHeight);
             GeoCylinder = cy;
-            
+
             Cone cone = new Cone(Plane.WorldXY, cylinderHeight, sphereRadius);
             GeoCone = cone;
+            
+            Torus torus = new Torus(Plane.WorldXY, cylinderHeight, cylinderRadius);
+            GeoTorus = torus;
 
 
         }
