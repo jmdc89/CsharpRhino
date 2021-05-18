@@ -61,7 +61,7 @@ namespace ns6b32b
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(object x, object y, object z, ref object A, ref object B, ref object CLine)
+        private void RunScript(Point3d x, Point3d y, Point3d z, ref object CPolyline, ref object CArc, ref object CLine, ref object Circle)
         {
             Point3d p0 = new Point3d(0, 0, 0);
             Point3d p1 = new Point3d(5, 1, 0);
@@ -70,6 +70,9 @@ namespace ns6b32b
             //Instance of a lightweight line
             Line line = new Line(p0, p1);
             CLine = line;
+            
+            Arc arc = new Arc(p0, p1, p2);
+            CArc = arc;
         }
         #endregion
 
