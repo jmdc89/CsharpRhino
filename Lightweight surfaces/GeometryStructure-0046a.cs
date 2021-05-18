@@ -61,7 +61,7 @@ namespace ns0046a
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(object x, object y, ref object A, ref object GeoCylinder)
+        private void RunScript(object x, object y, ref object A, ref object GeoCylinder, ref object GeoSphere, ref object GeoLine1, ref object GeoLine2)
         {
             //Generate a random radius of a circle
             Random rand = new Random();
@@ -95,6 +95,8 @@ namespace ns0046a
             //Create start and end lines
             Line line1 = new Line(startPoint, vec);
             Line line2 = new Line(endPoint, vec);
+            GeoLine1 = line1;
+            GeoLine2 = line2;
 
             //Create a cylinder at line1 with radius = 1/4 the length
             double height = line1.Length;
@@ -102,6 +104,11 @@ namespace ns0046a
             Circle c_circle = new Circle(line1.From, radius2);
             Cylinder cylinder = new Cylinder(c_circle, height);
             GeoCylinder = cylinder;
+
+            //Create a sphere at the center of line2 with radius = 1/4 of length
+            Point3d sphereCenter = line2.PointAt(0.5);
+            Sphere sphere = new Sphere(sphereCenter, radius2);
+            GeoSphere = sphere;
 
 
         }
