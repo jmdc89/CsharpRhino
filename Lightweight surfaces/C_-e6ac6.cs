@@ -67,16 +67,19 @@ namespace nse6ac6
             double sphereRadius = 7.5;
             double cylinderHeight = 7.5;
             double cylinderRadius = 2.5;
-            
+
 
             Sphere sphere = new Sphere(center, sphereRadius);
             GeoSphere = sphere;
-            
+
             Circle baseCircle = new Circle(center, cylinderRadius);
             Cylinder cy = new Cylinder(baseCircle, cylinderHeight);
             GeoCylinder = cy;
             
-            
+            Cone cone = new Cone(Plane.WorldXY, cylinderHeight, sphereRadius);
+            GeoCone = cone;
+
+
         }
         #endregion
 
