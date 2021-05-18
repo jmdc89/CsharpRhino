@@ -63,21 +63,27 @@ namespace ns0046a
         #region Runscript
         private void RunScript(object x, object y, ref object A)
         {
-  //Generate a random radius of a circle
+            //Generate a random radius of a circle
             Random rand = new Random();
             double radius = rand.Next(10, 20);
-            
+
             //Create xy_plane using the Plane static method WorldXY
             Plane plane = Plane.WorldXY;
-            
+
             //Set plane origin to (2,1,0);
             Point3d center = new Point3d(2, 1, 0);
             plane.Origin = center;
-            
+
             //Create a circle from plane and radius
             Circle circle = new Circle(plane, radius);
-            
-            
+
+            //Create an arc from an input circle and interval
+            Interval angleInterval = new Interval(0, Math.PI);
+
+            Arc arc = new Arc(circle, angleInterval);
+            A = arc;
+
+
         }
         #endregion
 
