@@ -61,13 +61,22 @@ namespace nse6ac6
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(object x, object y, ref object GeoSphere)
+        private void RunScript(object x, object y, ref object GeoSphere, ref object GeoCylinder, ref object GeoCone, ref object GeoTorus)
         {
             Point3d center = Point3d.Origin;
-            double radius = 7.5;
+            double sphereRadius = 7.5;
+            double cylinderHeight = 7.5;
+            double cylinderRadius = 2.5;
+            
 
-            Sphere sphere = new Sphere(center, radius);
+            Sphere sphere = new Sphere(center, sphereRadius);
             GeoSphere = sphere;
+            
+            Circle baseCircle = new Circle(center, cylinderRadius);
+            Cylinder cy = new Cylinder(baseCircle, cylinderHeight);
+            GeoCylinder = cy;
+            
+            
         }
         #endregion
 
