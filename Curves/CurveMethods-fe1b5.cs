@@ -81,17 +81,23 @@ namespace nsfe1b5
                 ControlPoint cp = nc.Points[i];
                 cpList.Add(cp.Location);
             }
-            A = cpList;
-            
+
             //Get the knot list of a NurbsCurve(nc)
             List<double> knotList = new List<double>();
-            int count = nc.Points.Count;
-            
+
             //Loop to get all knots values
             for(int i = 0; i <= count - 1; i++){
                 double knot = nc.Knots[i];
                 knotList.Add(knot);
             }
+            
+            //Divide Curve (crv) by number (num)
+            //Declare an array of points
+            Point3d[] points = {};
+            
+            //Divide the curve by number
+            crv.DivideByCount(5, true, out points);
+            A = points;
         }
         #endregion
 
