@@ -65,11 +65,15 @@ namespace nsfe1b5
         {
             Interval domain = crv.Domain;
             Print(domain.ToString());
-            
+
             Point3d startPoint = crv.PointAtStart;
             Point3d endPoint = crv.PointAtEnd;
             
+            Vector3d startTangent = crv.TangentAtStart;
             
+            
+
+
         }
         #endregion
 
