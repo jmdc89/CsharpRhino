@@ -65,15 +65,23 @@ namespace nsfe1b5
         {
             Interval domain = crv.Domain;
             Print(domain.ToString());
+            NurbsCurve nc = crv.ToNurbsCurve();
 
             Point3d startPoint = crv.PointAtStart;
             Point3d endPoint = crv.PointAtEnd;
-            
+
             Vector3d startTangent = crv.TangentAtStart;
-            
-            
 
-
+            //Get the control points of a NurbsCurve(nc)
+            List<Point3d> cpList = new List<Point3d>();
+            int count = nc.Points.Count;
+            
+            //Loop to get all cv points
+            for(int i = 0; i <= count - 1; i++) {
+                ControlPoint cp = nc.Points[i];
+                cpList.Add(cp.Location);
+            }
+            A = cpList;
         }
         #endregion
 
