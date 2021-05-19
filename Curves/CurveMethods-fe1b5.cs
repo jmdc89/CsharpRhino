@@ -75,13 +75,23 @@ namespace nsfe1b5
             //Get the control points of a NurbsCurve(nc)
             List<Point3d> cpList = new List<Point3d>();
             int count = nc.Points.Count;
-            
+
             //Loop to get all cv points
             for(int i = 0; i <= count - 1; i++) {
                 ControlPoint cp = nc.Points[i];
                 cpList.Add(cp.Location);
             }
             A = cpList;
+            
+            //Get the knot list of a NurbsCurve(nc)
+            List<double> knotList = new List<double>();
+            int count = nc.Points.Count;
+            
+            //Loop to get all knots values
+            for(int i = 0; i <= count - 1; i++){
+                double knot = nc.Knots[i];
+                knotList.Add(knot);
+            }
         }
         #endregion
 
