@@ -61,14 +61,16 @@ namespace nsf3d91
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(object x, object y, ref object A)
+        private void RunScript(Curve crv, Line axis, ref object A)
         {
             var plane = Plane.WorldXY;
             var x_interval = new Interval(1.0, 3.5);
             var y_interval = new Interval(2.0, 6.0);
-            
+
             var planeSrf = new PlaneSurface(plane, x_interval, y_interval);
-            A = planeSrf;
+
+            var revSrf = RevSurface.Create(crv, axis);
+            A = revSrf;
         }
         #endregion
 
