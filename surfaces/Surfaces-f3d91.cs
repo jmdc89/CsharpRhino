@@ -61,7 +61,7 @@ namespace nsf3d91
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(Curve crv, Line axis, ref object A)
+        private void RunScript(Curve crv, Line axis, List<Point3d> points, ref object A)
         {
             var plane = Plane.WorldXY;
             var x_interval = new Interval(1.0, 3.5);
@@ -70,7 +70,10 @@ namespace nsf3d91
             var planeSrf = new PlaneSurface(plane, x_interval, y_interval);
 
             var revSrf = RevSurface.Create(crv, axis);
-            A = revSrf;
+            
+            NurbsSurface ns = null;
+            ns = NurbsSurface.CreateThroughPoints(points, 2, 2, 1, 1, false, false);
+            A = ns;
         }
         #endregion
 
