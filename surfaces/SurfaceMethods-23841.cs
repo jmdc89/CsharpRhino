@@ -61,23 +61,45 @@ namespace ns23841
         /// they will have a default value.
         /// </summary>
         #region Runscript
-        private void RunScript(Surface srf, object y, ref object A)
+        private void RunScript(Surface srf, int num, double dis, double tol, ref object A)
         {
             bool isClosedU = srf.IsClosed(0);
             bool isClosedV = srf.IsClosed(1);
 
             bool isPlanar = srf.IsPlanar();
-            
+
             double u = 0.5;
             double v = 0.5;
-            
+
             Point3d evalPt = new Point3d(Point3d.Unset);
             Vector3d[] derivatives = {};
-            
+
             srf.Evaluate(u, v, 1, out evalPt, out derivatives);
-            
+
             Vector3d tanU = derivatives[0];
             Vector3d tanV = derivatives[1];
+
+            /*List<Surface> srfs = new List<Surface>();
+
+            Surface lastSrf = srf;
+            for (int i = 1; i <= num; i++) {
+                Surface offsetSrf = lastSrf.Offset(dis, tol);
+                if (srf.IsValid) {
+                    //append offset surface to array
+                    srfs.Add(offsetSrf);
+                    //update the next curve to offset
+                    lastSrf = offsetSrf;
+                }
+                else
+                    break;
+            }
+
+            A = srfs;+
+ */
+            
+            
+
+
         }
         #endregion
 
