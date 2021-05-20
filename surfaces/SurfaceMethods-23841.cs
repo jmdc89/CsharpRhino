@@ -65,8 +65,19 @@ namespace ns23841
         {
             bool isClosedU = srf.IsClosed(0);
             bool isClosedV = srf.IsClosed(1);
-            
+
             bool isPlanar = srf.IsPlanar();
+            
+            double u = 0.5;
+            double v = 0.5;
+            
+            Point3d evalPt = new Point3d(Point3d.Unset);
+            Vector3d[] derivatives = {};
+            
+            srf.Evaluate(u, v, 1, out evalPt, out derivatives);
+            
+            Vector3d tanU = derivatives[0];
+            Vector3d tanV = derivatives[1];
         }
         #endregion
 
